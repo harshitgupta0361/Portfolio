@@ -1,0 +1,486 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    padding-top: 75px;
+    min-height: 100vh;
+    box-sizing: border-box;
+    position: relative;
+    isolation: isolate;
+}
+
+body::before{
+    content: "";
+    position: fixed;
+    inset: 75px 0 0;
+    z-index: -1;
+    background: url(./data/back.jpg) center / cover no-repeat;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    /* gap: 350px; */
+    padding: 20px 30px;
+    align-items: center;
+    background-color: white;
+    box-sizing: border-box;
+    width: 100%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+nav .d1{
+    font-family: cursive;
+}
+nav .d2{
+    align-items: center;
+    display: flex;
+    gap: 40px;
+}
+nav .d2 button{
+    border: none;
+    background: none;
+    padding: 0;
+    height: fit-content;
+}
+nav .d2 button:hover{
+    transform: translateY(-2px) scale(1.03);
+}
+nav .d2 button img{
+    height: 30px;
+    width: 30px;
+}
+nav a{
+    font-size: 18px;
+    text-decoration: none;
+    color: black;
+}
+nav .name{
+    font-weight: bolder;
+    font-size: 30px;
+    color: #97818b;
+}
+nav .d1{
+    display: flex;
+    gap: 90px;
+}
+.banner{
+    display: flex; 
+}
+.banner .profile_img img{
+    border-radius: 300px;
+    width: 380px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-right: 50px;
+    /* padding-left: 50px; */
+    height: 480px;
+    /* border-radius: 20px; */
+    /* margin: 20px; */
+    filter: drop-shadow(8px 8px 10px rgba(.75, .75, .75, .75));
+}
+.banner .dis{
+    padding-top: 120px;
+    padding-left: 70px;
+    padding-right: 100px;
+}
+.banner .dis h1{
+    font-size: 45px;
+}
+.banner .dis p{
+    font-family: cursive;
+}
+.banner .dis .b1{
+    justify-content: left;
+    display: flex;
+    gap: 20px;
+}
+.b1 button{
+    cursor: pointer;
+    width: 160px;
+    height: 40px;
+    padding: 8px;
+    background-color: #968383;
+    border: 1.5px solid rgb(50, 50, 17);
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: white;
+}
+.b1 button:hover{
+    transform: translateY(-2px) scale(1.03);
+}
+.res{
+    margin-left: 12px;
+    margin-right: 12px;
+    border-radius: 15px;
+}
+.res .head{
+    padding-top: 20px;
+    margin: 0;
+    padding-left: 20px;
+}
+.res .resumes{
+    
+    padding: 20px;
+    /* padding-left: 50px; */
+    display: flex;
+}
+.res .resumes .left{
+    border-right: 3px solid black;
+    width: 50%;
+}
+.res .resumes .left h2{
+    font-style: italic;
+}
+.res .resumes .left ul{
+    font-family: cursive;
+    font-size: 14px;
+}
+.res .resumes .left p{
+    font-family: cursive;
+    font-size: 14px;
+}
+.res .resumes .left a{
+    text-decoration: none;
+    color: black;
+}
+.res .resumes .left i:hover{
+    transform: translateY(-2px) scale(1.03);
+}
+.res .resumes .right{
+    padding-left: 20px;
+    width: 50%;
+}
+.res .resumes .right h2{
+    font-style: italic;
+}
+.res .resumes .right ul p{
+    font-family: cursive;
+    font-size: 14px;
+}
+.res .resumes .right ul a{
+    /* text-decoration: none; */
+    color: black;
+}
+.res .resumes .right .u1{
+    font-family: cursive;
+    font-size: 14px;
+}
+.res .resumes .right ul b{
+    font-size: 18px;
+}
+.res .resumes .right p{
+    font-family: cursive;
+}
+.project{
+    margin-left: 12px;
+    margin-right: 12px;
+    border-radius: 15px;
+    height: 100%;
+    padding: 20px;
+    /* background-color: rgb(219, 214, 214); */
+}
+.project .exp{
+    padding: 5px;
+    padding-left: 50px;
+    box-sizing: border-box;
+    border: 2px solid rgb(94, 91, 91);
+    border-radius: 10px;
+    width: 100%;
+    place-items: left;
+    height: fit-content;
+    background-color: rgb(185, 163, 163 , 0.4);
+    
+}
+.project .exp ul{
+    font-family: cursive;
+}
+.project .exp a{
+    color: black;
+}
+.project .pro{
+    padding: 5px;
+    padding-left: 50px;
+    box-sizing: border-box;
+    background-color: rgb(185, 163, 163, 0.4);
+    border: 2px solid rgb(94, 91, 91);
+    border-radius: 10px;
+    width: 100%;
+    place-items: left;
+    height: fit-content;
+}
+.project .pro2{
+    padding-left: 0;
+    padding-right: 14px;
+    padding-bottom: 20px;
+    gap: 10px;
+    width: 97%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.project .pro2 .p{
+    border: 1px solid black;
+    background-color: rgb(219, 214, 214);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    gap: 30px;
+    justify-content: space-between;
+}
+.project .pro2 .p .pp p{
+    font-family: cursive;
+}
+.project .pro2 .p .pp2 button{
+    cursor: pointer;
+    border-radius: 9px;
+    border: 1px solid black;
+    width: 100px;
+    height: 35px;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(150, 131, 131);
+}
+.project .pro2 .p .pp2 button:hover{
+    transform: translateY(-2px) scale(1.08);
+}
+.con{
+    display: flex;
+    width: 97%;
+    padding-top: 20px;
+    padding-left : 25px;
+    padding-right: 20px;
+    gap: 8px;
+}
+.con .left1{ 
+    border-radius: 20px;
+    width: 50%;
+    padding-left: 30px;
+    padding-right: 20px;
+    background-color: rgb(150, 131, 131, 0.3);
+}
+.con .left1 p{
+    font-family: cursive;
+}
+.con .right1{
+    border-radius: 20px;
+    width: 50%;
+    padding-left: 30px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    background-color: rgb(150, 131, 131, 0.3);
+}
+.con .right1 input{
+    width: 90%;
+    height: 25px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+}
+.con .right1 button{
+    cursor: pointer;
+    width: 91.5%;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease; 
+}
+.con .right1 button:hover{
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px) scale(1.03);
+}
+
+@media (max-width: 1000px){
+    body{
+        padding-top: 105px;
+    }
+    body::before{
+        inset-block-start: 105px;
+    }
+    nav{
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 8px 16px;
+        padding: 10px 20px;
+    }
+    nav .name{
+        font-size: 25px;
+    }
+    nav .d1{
+        grid-column: 1 / -1;
+        grid-row: 2;
+        justify-content: space-between;
+        gap: 16px;
+    }
+    nav .d2{
+        gap: 16px;
+    }
+    .banner{
+        align-items: center;
+        gap: 20px;
+        padding: 0 24px;
+    }
+    .banner .dis{
+        min-width: 0;
+        padding: 45px 0;
+        flex: 1;
+    }
+    .banner .dis h1{
+        font-size: clamp(30px, 5vw, 45px);
+    }
+    .banner .profile_img{
+        flex: 0 1 38%;
+    }
+    .banner .profile_img img{
+        display: block;
+        width: 100%;
+        height: auto;
+        padding: 30px 0;
+    }
+    .res .resumes .left,
+    .res .resumes .right{
+        min-width: 0;
+    }
+    .project .pro2{
+        width: 100%;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 700px){
+    body{
+        padding-top: 100px;
+    }
+    body::before{
+        inset-block-start: 100px;
+    }
+    nav{
+        padding: 10px 14px;
+    }
+    nav .name{
+        font-size: 21px;
+    }
+    nav a{
+        font-size: 15px;
+    }
+    nav .d1{
+        gap: 8px;
+    }
+    nav .d2{
+        gap: 9px;
+    }
+    nav .d2 button img{
+        max-width: 27px;
+        max-height: 27px;
+    }
+    .banner{
+        flex-direction: column-reverse;
+        gap: 0;
+        padding: 0 20px 24px;
+    }
+    .banner .profile_img{
+        width: min(100%, 340px);
+        flex: none;
+        align-self: center;
+    }
+    .banner .profile_img img{
+        max-height: 360px;
+        object-fit: contain;
+        padding: 24px 0 0;
+    }
+    .banner .dis{
+        width: 100%;
+        padding: 20px 0;
+    }
+    .banner .dis h1{
+        font-size: 32px;
+    }
+    .banner .dis .b1{
+        flex-wrap: wrap;
+    }
+    .res .head{
+        padding-left: 8px;
+    }
+    .res .resumes{
+        flex-direction: column;
+        padding: 12px 8px;
+    }
+    .res .resumes .left{
+        width: 100%;
+        border-right: 0;
+        border-bottom: 2px solid black;
+        padding-bottom: 18px;
+    }
+    .res .resumes .right{
+        width: 100%;
+        padding: 18px 0 0;
+    }
+    .project{
+        margin: 0;
+        padding: 16px;
+    }
+    .project .exp,
+    .project .pro{
+        padding: 8px 16px;
+    }
+    .project .pro2{
+        grid-template-columns: minmax(0, 1fr);
+        padding-right: 0;
+    }
+    .project .pro2 .p{
+        gap: 16px;
+    }
+    .project .pro2 .p .pp2 button{
+        width: 96px;
+    }
+    .con{
+        flex-direction: column;
+        width: 100%;
+        padding: 16px;
+        gap: 16px;
+    }
+    .con .left1,
+    .con .right1{
+        width: 100%;
+        padding: 12px 18px 20px;
+    }
+    .con .right1 input,
+    .con .right1 button{
+        width: 100%;
+        min-height: 40px;
+    }
+    .con .right1 input{
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 380px){
+    nav .name{
+        font-size: 19px;
+    }
+    nav .d2{
+        gap: 5px;
+    }
+    nav a{
+        font-size: 14px;
+    }
+    nav .d1{
+        gap: 5px;
+    }
+    .banner .dis h1{
+        font-size: 28px;
+    }
+    .project .pro2 .p{
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
