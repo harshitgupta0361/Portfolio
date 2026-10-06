@@ -43,5 +43,20 @@
             <img src="./data/profile_pic.png" alt="img_not_found">
         </div>
     </div>
+<script>
+document.getElementById('downloadBtn').addEventListener('click', function() {
+
+    const link = document.createElement('a');
+    
+    
+    link.href = 'path/to/your/file.pdf';
+    link.download = 'My_Downloaded_File.pdf';
+    
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+});
+</script>
+
 </body>
 </html>
