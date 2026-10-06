@@ -9,8 +9,7 @@
 <body>
     <nav class="d">
         <a href="./index.html" class="name"><i>harshit's portfolio.</i></a>
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav-menu">Menu</button>
-        <div class="d1" id="main-nav-menu">
+        <div class="d1">
             <a href="./index.html">Home</a>
             <a href="./resume.html">Resume</a>
             <a href="./contact.html">Contact</a>
@@ -72,30 +71,5 @@
             </div>
         </div>
     </div>
-<script>
-const navToggle = document.querySelector('.menu-toggle');
-const navMenu = document.querySelector('.d1');
-
-if (navToggle && navMenu) {
-    navToggle.addEventListener('click', () => {
-        const isOpen = navMenu.classList.toggle('open');
-        navToggle.setAttribute('aria-expanded', String(isOpen));
-    });
-
-    navMenu.querySelectorAll('a').forEach((link) => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('open');
-            navToggle.setAttribute('aria-expanded', 'false');
-        });
-    });
-
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 760) {
-            navMenu.classList.remove('open');
-            navToggle.setAttribute('aria-expanded', 'false');
-        }
-    });
-}
-</script>
 </body>
 </html>
