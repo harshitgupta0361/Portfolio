@@ -9,7 +9,8 @@
 <body>
     <nav class="d">
         <a href="./index.html" class="name"><i>harshit's portfolio.</i></a>
-        <div class="d1">
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav-menu">Menu</button>
+        <div class="d1" id="main-nav-menu">
             <!-- <a href="./index.html">Home</a> -->
             <a href="./resume.html">Resume</a>
             <a href="./projects.html">Experience & Projects</a>
@@ -30,9 +31,11 @@
                 ideas into functional web experiences while continuously exploring modern
                  technologies, development tools, and creative problem-solving.
             </p>
+            <p>
+                Through multiple projects as further listed, I have developed hands-on experience in web development and application design. Beyond coding, I’m interested in photography, event management, and travelling, which help me stay creative and collaborative. I’m always eager to learn, experiment with new technologies, and take on challenges that help me grow as an engineer while creating meaningful and impactful solutions.
+            </p>
             <br>
             <div class="b1">
-                <a href="./learnmore.html"><button>More</button></a>
                 <a href="https://github.com/harshitgupta0361"><button>GitHub</button></a>
                 <a href="./data/resume1.pdf"><button >Download Resume</button></a>
             </div>
@@ -42,18 +45,29 @@
         </div>
     </div>
 <script>
-document.getElementById('downloadBtn').addEventListener('click', function() {
+const navToggle = document.querySelector('.menu-toggle');
+const navMenu = document.querySelector('.d1');
 
-    const link = document.createElement('a');
-    
-    
-    link.href = 'path/to/your/file.pdf';
-    link.download = 'My_Downloaded_File.pdf';
-    
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-});
+if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+        const isOpen = navMenu.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    navMenu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('open');
+            navToggle.setAttribute('aria-expanded', 'false');
+        });
+    });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 760) {
+            navMenu.classList.remove('open');
+            navToggle.setAttribute('aria-expanded', 'false');
+        }
+    });
+}
 </script>
 
 </body>

@@ -1,5 +1,24 @@
 *{
     box-sizing: border-box;
+    
+}
+/* Prevent a flash of content before the animation starts */
+html {
+  background-color: #ffffff; /* Match this to your site's background color */
+}
+
+body {
+  opacity: 0;
+  animation: fadeInAnimation ease 1s forwards;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 body{
@@ -30,16 +49,21 @@ nav{
     z-index: 1000;
     display: flex;
     justify-content: space-between;
-    /* gap: 350px; */
     padding: 20px 30px;
     align-items: center;
     background-color: white;
     box-sizing: border-box;
     width: 100%;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 nav .d1{
     font-family: cursive;
+    display: flex;
+    gap: 90px;
+    align-items: center;
+}
+nav .d1 a{
+    white-space: nowrap;
 }
 nav .d2{
     align-items: center;
@@ -68,28 +92,36 @@ nav .name{
     font-weight: bolder;
     font-size: 30px;
     color: #97818b;
+    flex-shrink: 0;
 }
-nav .d1{
-    display: flex;
-    gap: 90px;
+.menu-toggle{
+    display: none;
+    background: #f3e8e8;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #2e2e2e;
 }
 .banner{
     display: flex; 
 }
 .banner .profile_img img{
     border-radius: 300px;
-    width: 380px;
+    width: 410px;
     padding-top: 50px;
     padding-bottom: 50px;
     padding-right: 50px;
     /* padding-left: 50px; */
-    height: 480px;
+    height: 570px;
     /* border-radius: 20px; */
     /* margin: 20px; */
     filter: drop-shadow(8px 8px 10px rgba(.75, .75, .75, .75));
 }
 .banner .dis{
-    padding-top: 120px;
+    padding-top: 70px;
     padding-left: 70px;
     padding-right: 100px;
 }
@@ -135,6 +167,7 @@ nav .d1{
     display: flex;
 }
 .res .resumes .left{
+    padding-right: 5px;
     border-right: 3px solid black;
     width: 50%;
 }
@@ -255,15 +288,15 @@ nav .d1{
 }
 .con{
     display: flex;
-    width: 97%;
+    width: 100%;
     padding-top: 20px;
-    padding-left : 25px;
+    padding-left : 20px;
     padding-right: 20px;
     gap: 8px;
 }
 .con .left1{ 
     border-radius: 20px;
-    width: 50%;
+    width: 100%;
     padding-left: 30px;
     padding-right: 20px;
     background-color: rgb(150, 131, 131, 0.3);
@@ -273,22 +306,28 @@ nav .d1{
 }
 .con .right1{
     border-radius: 20px;
-    width: 50%;
+    width: 100%;
     padding-left: 30px;
     padding-right: 20px;
     padding-bottom: 20px;
     background-color: rgb(150, 131, 131, 0.3);
 }
 .con .right1 input{
-    width: 90%;
+    width: 100%;
     height: 25px;
-    padding: 5px;
+    padding: 15px;
     border-radius: 5px;
     border: none;
 }
+.con .right1 input:focus {
+  border-color: #968383;
+  box-shadow: 2px 2px 5px rgb(176, 126, 126, 10);
+  outline: none;
+}
+
 .con .right1 button{
     cursor: pointer;
-    width: 91.5%;
+    width: 100%;
     height: 30px;
     border-radius: 5px;
     border: none;
@@ -356,131 +395,101 @@ nav .d1{
     }
 }
 
-@media (max-width: 700px){
-    body{
-        padding-top: 100px;
-    }
-    body::before{
-        inset-block-start: 100px;
-    }
+@media (max-width: 760px){
     nav{
-        padding: 10px 14px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px 16px;
+        padding: 14px 18px;
     }
     nav .name{
-        font-size: 21px;
+        font-size: 22px;
     }
-    nav a{
-        font-size: 15px;
+    .menu-toggle{
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
     }
     nav .d1{
-        gap: 8px;
+        display: none;
+        width: 100%;
+        order: 3;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 12px 14px;
+        background: rgba(255, 255, 255, 0.96);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 10px;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+    }
+    nav .d1.open{
+        display: flex;
     }
     nav .d2{
-        gap: 9px;
+        gap: 12px;
+        margin-left: auto;
     }
     nav .d2 button img{
-        max-width: 27px;
-        max-height: 27px;
+        height: 24px;
+        width: 24px;
     }
     .banner{
-        flex-direction: column-reverse;
-        gap: 0;
-        padding: 0 20px 24px;
-    }
-    .banner .profile_img{
-        width: min(100%, 340px);
-        flex: none;
-        align-self: center;
-    }
-    .banner .profile_img img{
-        max-height: 360px;
-        object-fit: contain;
-        padding: 24px 0 0;
+        flex-direction: column;
+        padding: 0 18px 30px;
     }
     .banner .dis{
         width: 100%;
-        padding: 20px 0;
+        padding: 30px 0 0;
     }
-    .banner .dis h1{
-        font-size: 32px;
+    .banner .profile_img{
+        width: 100%;
     }
-    .banner .dis .b1{
-        flex-wrap: wrap;
+    .banner .profile_img img{
+        width: min(320px, 90vw);
+        height: auto;
+        margin: 0 auto;
+        padding: 0;
     }
-    .res .head{
-        padding-left: 8px;
-    }
+    .con,
     .res .resumes{
         flex-direction: column;
-        padding: 12px 8px;
     }
-    .res .resumes .left{
-        width: 100%;
-        border-right: 0;
-        border-bottom: 2px solid black;
-        padding-bottom: 18px;
-    }
-    .res .resumes .right{
-        width: 100%;
-        padding: 18px 0 0;
-    }
-    .project{
-        margin: 0;
-        padding: 16px;
-    }
-    .project .exp,
-    .project .pro{
-        padding: 8px 16px;
-    }
-    .project .pro2{
-        grid-template-columns: minmax(0, 1fr);
-        padding-right: 0;
-    }
-    .project .pro2 .p{
-        gap: 16px;
-    }
-    .project .pro2 .p .pp2 button{
-        width: 96px;
-    }
-    .con{
-        flex-direction: column;
-        width: 100%;
-        padding: 16px;
-        gap: 16px;
-    }
+    .res .resumes .left,
+    .res .resumes .right,
     .con .left1,
     .con .right1{
         width: 100%;
-        padding: 12px 18px 20px;
+        border-right: none;
+        padding-left: 18px;
+        padding-right: 18px;
     }
-    .con .right1 input,
-    .con .right1 button{
-        width: 100%;
-        min-height: 40px;
+    .project .pro2{
+        grid-template-columns: 1fr;
     }
-    .con .right1 input{
-        max-width: 100%;
+    .project .exp,
+    .project .pro{
+        padding-left: 18px;
+        padding-right: 18px;
     }
 }
 
-@media (max-width: 380px){
+@media (max-width: 480px){
     nav .name{
-        font-size: 19px;
+        font-size: 18px;
     }
     nav .d2{
-        gap: 5px;
-    }
-    nav a{
-        font-size: 14px;
-    }
-    nav .d1{
-        gap: 5px;
+        gap: 8px;
     }
     .banner .dis h1{
-        font-size: 28px;
+        font-size: 30px;
     }
-    .project .pro2 .p{
-        align-items: flex-start;
+    .banner .dis .b1{
         flex-direction: column;
+        align-items: stretch;
+    }
+    .b1 button{
+        width: 100%;
     }
 }
